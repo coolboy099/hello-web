@@ -1,11 +1,12 @@
 {
-  "name": "hello-web",
+  "name": "mini-aternos",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Mini Aternos-like Minecraft server manager",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^5.1.0"
   }
 }

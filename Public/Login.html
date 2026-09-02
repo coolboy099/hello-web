@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 500px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Login</h2>
+
+  <input
+    id="top"
+    type="text"
+    placeholder="Upar wala box"
+  >
+
+  <input
+    id="bottom"
+    type="text"
+    placeholder="Neeche wala box"
+  >
+
+  <button onclick="submitData()">Login</button>
+
+  <p id="message"></p>
+
+  <script>
+    async function submitData() {
+      const top = document.getElementById("top").value;
+      const bottom = document.getElementById("bottom").value;
+
+      const response = await fetch("/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          top,
+          bottom
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        document.getElementById("message").textContent =
+          "Submitted successfully!";
+      }
+    }
+  </script>
+
+</body>
+</html>

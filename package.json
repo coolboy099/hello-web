@@ -1,12 +1,12 @@
 {
-  "name": "mini-aternos",
+  "name": "two-box-project",
   "version": "1.0.0",
-  "description": "Mini Aternos-like Minecraft server manager",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
   }
-}
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+
+    .value {
+      font-size: 22px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dashboard</h1>
+
+  <div class="box">
+    <b>Upar wale box mein:</b>
+    <div id="top" class="value">Waiting...</div>
+  </div>
+
+  <div class="box">
+    <b>Neeche wale box mein:</b>
+    <div id="bottom" class="value">Waiting...</div>
+  </div>
+
+  <script>
+    const socket = io();
+
+    socket.on("newData", (data) => {
+      document.getElementById("top").textContent =
+        data.top || "(empty)";
+
+      document.getElementById("bottom").textContent =
+        data.bottom || "(empty)";
+    });
+  </script>
+
+</body>
+</html>
